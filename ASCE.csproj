@@ -181,6 +181,14 @@
     <Compile Include="Migrations\202006041903473_Update users table.Designer.cs">
       <DependentUpon>202006041903473_Update users table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006042250524_Create PersonalAccount and Counter tables.cs" />
+    <Compile Include="Migrations\202006042250524_Create PersonalAccount and Counter tables.Designer.cs">
+      <DependentUpon>202006042250524_Create PersonalAccount and Counter tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006042259594_Update one to many links.cs" />
+    <Compile Include="Migrations\202006042259594_Update one to many links.Designer.cs">
+      <DependentUpon>202006042259594_Update one to many links.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -255,6 +263,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006041903473_Update users table.resx">
       <DependentUpon>202006041903473_Update users table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006042250524_Create PersonalAccount and Counter tables.resx">
+      <DependentUpon>202006042250524_Create PersonalAccount and Counter tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006042259594_Update one to many links.resx">
+      <DependentUpon>202006042259594_Update one to many links.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
