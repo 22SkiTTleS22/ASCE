@@ -173,6 +173,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006041842542_InitialCreate.cs" />
+    <Compile Include="Migrations\202006041842542_InitialCreate.Designer.cs">
+      <DependentUpon>202006041842542_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006041903473_Update users table.cs" />
+    <Compile Include="Migrations\202006041903473_Update users table.Designer.cs">
+      <DependentUpon>202006041903473_Update users table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -180,6 +189,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-ASCE-20200604103245.mdf" />
+    <Content Include="App_Data\aspnet-ASCE-20200604103245_log.ldf">
+      <DependentUpon>aspnet-ASCE-20200604103245.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -237,7 +250,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <EmbeddedResource Include="Migrations\202006041842542_InitialCreate.resx">
+      <DependentUpon>202006041842542_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006041903473_Update users table.resx">
+      <DependentUpon>202006041903473_Update users table.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
