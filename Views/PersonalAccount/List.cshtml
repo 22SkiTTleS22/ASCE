@@ -1,6 +1,14 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "PersonalAccountList";
+    @Styles.Render("~/Content/lists.css")
 }
 
-    <h3>@ViewBag.Message</h3>
+<h3>Список лицевых счетов</h3>
+
+<table>
+    <tr>
+        <th>Номер лицевого счета</th>
+        <th>Адрес</th>
+        <th>Дата открытия</th>
+    </tr>
+</table>

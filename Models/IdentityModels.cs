@@ -163,7 +163,7 @@ namespace ASCE.Models
 
     public class Request
     {
-        [HiddenInput(DisplayValue = false)]
+        [Display(Name = "Номер заявки")]
         public int Id { get; set; }
 
         [HiddenInput(DisplayValue = false)]

@@ -1,6 +1,18 @@
 ﻿
 @{
-    ViewBag.Title = "Request";
+    ViewBag.Title = "RequestList";
+    @Styles.Render("~/Content/lists.css")
 }
 
-<h3>@ViewBag.Message</h3>
+<h3>Список заявок</h3>
+
+<table>
+    <tr>
+        <th>Номер заявки</th>
+        <th>Статус</th>
+        <th>Описание</th>
+        <th>Категория</th>
+        <th>Дата открытия</th>
+        <th>Дата закрытия</th>
+    </tr>
+</table>

@@ -1,7 +1,14 @@
 ﻿
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "ServiceList";
+    @Styles.Render("~/Content/lists.css")
 }
 
+<h3>Список услуг</h3>
 
-<h3>@ViewBag.Message</h3>
+<table>
+    <tr>
+        <th>Имя услуги</th>
+        <th>Описание</th>
+    </tr>
+</table>
