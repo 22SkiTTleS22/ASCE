@@ -14,13 +14,11 @@ namespace ASCE.Models
     // В профиль пользователя можно добавить дополнительные данные, если указать больше свойств для класса ApplicationUser. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=317594.
     public class ApplicationUser : IdentityUser
     {
-        [Required]
-        [StringLength(25, MinimumLength = 3, ErrorMessage = "Длина строки должна быть от 3 до 25 символов")]
+        [StringLength(25)]
         [Display(Name = "Имя")]
         public string FirstName { get; set; }
         
-        [Required]
-        [StringLength(30, MinimumLength = 3, ErrorMessage = "Длина строки должна быть от 3 до 30 символов")]
+        [StringLength(25)]
         [Display(Name = "Фамилия")]
         public string SecondName { get; set; }
         
@@ -48,7 +46,6 @@ namespace ASCE.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 1, ErrorMessage = "Длина строки должна быть от 1 до 50 символов")]
         [Display(Name = "Номер лицевого счета")]
         public int AccountNumber { get; set; }
 

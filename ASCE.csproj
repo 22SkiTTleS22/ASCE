@@ -173,38 +173,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006041842542_InitialCreate.cs" />
-    <Compile Include="Migrations\202006041842542_InitialCreate.Designer.cs">
-      <DependentUpon>202006041842542_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006041903473_Update users table.cs" />
-    <Compile Include="Migrations\202006041903473_Update users table.Designer.cs">
-      <DependentUpon>202006041903473_Update users table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006042250524_Create PersonalAccount and Counter tables.cs" />
-    <Compile Include="Migrations\202006042250524_Create PersonalAccount and Counter tables.Designer.cs">
-      <DependentUpon>202006042250524_Create PersonalAccount and Counter tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006042259594_Update one to many links.cs" />
-    <Compile Include="Migrations\202006042259594_Update one to many links.Designer.cs">
-      <DependentUpon>202006042259594_Update one to many links.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006050910188_Added verification, request, worker and service table.cs" />
-    <Compile Include="Migrations\202006050910188_Added verification, request, worker and service table.Designer.cs">
-      <DependentUpon>202006050910188_Added verification, request, worker and service table.cs</DependentUpon>
+    <Compile Include="Migrations\202006051319011_Init migration.cs" />
+    <Compile Include="Migrations\202006051319011_Init migration.Designer.cs">
+      <DependentUpon>202006051319011_Init migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AppDbInitializer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-ASCE-20200604103245.mdf" />
-    <Content Include="App_Data\aspnet-ASCE-20200604103245_log.ldf">
-      <DependentUpon>aspnet-ASCE-20200604103245.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -262,23 +243,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006041842542_InitialCreate.resx">
-      <DependentUpon>202006041842542_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006041903473_Update users table.resx">
-      <DependentUpon>202006041903473_Update users table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006042250524_Create PersonalAccount and Counter tables.resx">
-      <DependentUpon>202006042250524_Create PersonalAccount and Counter tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006042259594_Update one to many links.resx">
-      <DependentUpon>202006042259594_Update one to many links.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006050910188_Added verification, request, worker and service table.resx">
-      <DependentUpon>202006050910188_Added verification, request, worker and service table.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -290,6 +254,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202006051319011_Init migration.resx">
+      <DependentUpon>202006051319011_Init migration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

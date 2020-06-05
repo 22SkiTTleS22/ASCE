@@ -9,8 +9,7 @@ namespace ASCE.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "ASCE.Models.ApplicationDbContext";
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(ASCE.Models.ApplicationDbContext context)
