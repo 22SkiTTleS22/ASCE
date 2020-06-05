@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -12,8 +14,11 @@ namespace ASCE.Models
     // В профиль пользователя можно добавить дополнительные данные, если указать больше свойств для класса ApplicationUser. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=317594.
     public class ApplicationUser : IdentityUser
     {
+        [Display(Name = "Имя")]
         public string FirstName { get; set; }
+        [Display(Name = "Фамилия")]
         public string SecondName { get; set; }
+        [Display(Name = "Отчество")]
         public string Patronymic { get; set; }
 
         public ICollection<PersonalAccount> PersonalAccounts { get; set; }
@@ -33,12 +38,16 @@ namespace ASCE.Models
 
     public class PersonalAccount
     {
-        public int Id { get; set; } //Номер лицевого счета
+        [Display(Name = "Номер лицевого счета")]
+        public int Id { get; set; }
 
+        [HiddenInput (DisplayValue = false)]
         public ApplicationUser ApplicationUser { get; set; }
 
+        [Display(Name = "Адреc")]
         public string Address { get; set; }
 
+        [Display (Name = "Дата открытия")]
         public DateTime DateOpen { get; set; }
 
         public ICollection<Counter> Counters { get; set; }
@@ -51,83 +60,116 @@ namespace ASCE.Models
 
     public class Counter
     {
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
      
+        [HiddenInput(DisplayValue = false)]
         public PersonalAccount PersonalAccount { get; set; }
         
+        [Display(Name = "Серийный номер")]
         public string SerialNumber { get; set; }
         
+        [Display(Name = "Модель")]
         public string Model { get; set; }
         
+        [Display(Name = "Производитель")]
         public string Manufacturer { get; set; }
 
+        [Display(Name = "Дата изготовления")]
         public DateTime DateCreate { get; set; }
 
+        [Display(Name = "Дата поверки")]
         public DateTime DateVerification { get; set; }
 
+        [Display(Name = "Дата следующей поверки")]
         public DateTime DateVerificationNext { get; set; } //TODO: Сделать автоматический расчет в зависимости от прошлой поверки
 
+        [Display(Name = "Дата установки")]
         public DateTime DateInstall { get; set; }
         
+        [Display(Name = "Разрядность")]
         public int Capacity { get; set; }
 
+        [Display(Name = "Номер пломбы")]
         public string SealNumber { get; set; }
 
-        public string InstallPlase { get; set; }
+        [Display(Name = "Место установки")]
+        public string InstallPlace { get; set; }
     }
 
     public class Service
     {
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
         
+        [Display(Name = "Имя услуги")]
         public string Name { get; set; }
 
+        [Display(Name = "Описание")]
         public string Description { get; set; }
 
     }
 
     public class Verification
     {
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public Counter Counter { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public IdentityUser IdentityUser { get; set; }
 
+        [Display(Name = "Протокол о поверки")]
         public byte[] ProtoclImg { get; set; } //Сканкопия протокола о поверки
 
+        [Display(Name = "Свидетельство о поверки")]
         public byte[] СertificateImg { get; set; } //Сканкопия свидетельства о поверки
     }
 
     public class Worker
     {
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
+        [Display(Name = "ФИО")]
         public string FullName { get; set; }
 
+        [Display(Name = "Должность")]
         public string Position { get; set; }
 
+        [Display(Name = "Телефон")]
         public int PhoneNumber { get; set; }
     }
 
     public class Request
     {
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public Worker Worker { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public Service Service { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public PersonalAccount PersonalAccount { get; set; }
 
+        [Display(Name = "Статус")]
         public string Status { get; set; }
 
+        [Display(Name = "Категория")]
         public string Category { get; set; }
 
+        [Display(Name = "Дата открытия")]
         public DateTime DateOpen { get; set; }
-
+        
+        [Display(Name = "Дата закрытия")]
         public DateTime DateClose { get; set; }
 
+        [Display(Name = "Описание")]
         public string Description { get; set; }
     }
 
@@ -137,6 +179,10 @@ namespace ASCE.Models
 
         DbSet<PersonalAccount> PersonalAccounts { get; set; }
         DbSet<Counter> Counters { get; set; }
+        DbSet<Worker> Workers { get; set; }
+        DbSet<Service> Services { get; set; }
+        DbSet<Request> Requests { get; set; }
+        DbSet<Verification> Verifications { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
