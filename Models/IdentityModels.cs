@@ -76,6 +76,62 @@ namespace ASCE.Models
         public string InstallPlase { get; set; }
     }
 
+    public class Service
+    {
+        public int Id { get; set; }
+        
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
+    }
+
+    public class Verification
+    {
+        public int Id { get; set; }
+
+        public Counter Counter { get; set; }
+
+        public IdentityUser IdentityUser { get; set; }
+
+        public byte[] ProtoclImg { get; set; } //Сканкопия протокола о поверки
+
+        public byte[] СertificateImg { get; set; } //Сканкопия свидетельства о поверки
+    }
+
+    public class Worker
+    {
+        public int Id { get; set; }
+
+        public string FullName { get; set; }
+
+        public string Position { get; set; }
+
+        public int PhoneNumber { get; set; }
+    }
+
+    public class Request
+    {
+        public int Id { get; set; }
+
+        public Worker Worker { get; set; }
+
+        public Service Service { get; set; }
+
+        public PersonalAccount PersonalAccount { get; set; }
+
+        public string Status { get; set; }
+
+        public string Category { get; set; }
+
+        public DateTime DateOpen { get; set; }
+
+        public DateTime DateClose { get; set; }
+
+        public string Description { get; set; }
+    }
+
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 
