@@ -15,10 +15,12 @@ namespace ASCE.Models
     public class ApplicationUser : IdentityUser
     {
         [Required]
+        [StringLength(25, MinimumLength = 3, ErrorMessage = "Длина строки должна быть от 3 до 25 символов")]
         [Display(Name = "Имя")]
         public string FirstName { get; set; }
         
         [Required]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "Длина строки должна быть от 3 до 30 символов")]
         [Display(Name = "Фамилия")]
         public string SecondName { get; set; }
         
@@ -46,6 +48,7 @@ namespace ASCE.Models
         public int Id { get; set; }
 
         [Required]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "Длина строки должна быть от 1 до 50 символов")]
         [Display(Name = "Номер лицевого счета")]
         public int AccountNumber { get; set; }
 
