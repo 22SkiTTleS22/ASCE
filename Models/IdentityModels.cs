@@ -42,8 +42,12 @@ namespace ASCE.Models
 
     public class PersonalAccount
     {
-        [Display(Name = "Номер лицевого счета")]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
+
+        [Required]
+        [Display(Name = "Номер лицевого счета")]
+        public int AccountNumber { get; set; }
 
         [HiddenInput (DisplayValue = false)]
         public ApplicationUser ApplicationUser { get; set; }
