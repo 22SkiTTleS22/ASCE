@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using ASCE.Models;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(ASCE.Startup))]

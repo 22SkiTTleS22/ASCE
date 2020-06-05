@@ -7,13 +7,13 @@ namespace ASCE.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Updateuserstable : IMigrationMetadata
+    public sealed partial class Initmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Updateuserstable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202006041903473_Update users table"; }
+            get { return "202006051319011_Init migration"; }
         }
         
         string IMigrationMetadata.Source
