@@ -189,6 +189,10 @@
     <Compile Include="Migrations\202006042259594_Update one to many links.Designer.cs">
       <DependentUpon>202006042259594_Update one to many links.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006050910188_Added verification, request, worker and service table.cs" />
+    <Compile Include="Migrations\202006050910188_Added verification, request, worker and service table.Designer.cs">
+      <DependentUpon>202006050910188_Added verification, request, worker and service table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -269,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006042259594_Update one to many links.resx">
       <DependentUpon>202006042259594_Update one to many links.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006050910188_Added verification, request, worker and service table.resx">
+      <DependentUpon>202006050910188_Added verification, request, worker and service table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
