@@ -135,7 +135,7 @@ namespace ASCE.Models
         public Counter Counter { get; set; }
 
         [HiddenInput(DisplayValue = false)]
-        public IdentityUser IdentityUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         [Display(Name = "Протокол о поверки")]
         public byte[] ProtoclImg { get; set; } //Сканкопия протокола о поверки
