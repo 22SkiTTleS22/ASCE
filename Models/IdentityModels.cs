@@ -48,6 +48,7 @@ namespace ASCE.Models
         public string Address { get; set; }
 
         [Display (Name = "Дата открытия")]
+        [DataType(DataType.Date)]
         public DateTime DateOpen { get; set; }
 
         public ICollection<Counter> Counters { get; set; }
@@ -76,15 +77,19 @@ namespace ASCE.Models
         public string Manufacturer { get; set; }
 
         [Display(Name = "Дата изготовления")]
+        [DataType(DataType.Date)]
         public DateTime DateCreate { get; set; }
 
         [Display(Name = "Дата поверки")]
+        [DataType(DataType.Date)]
         public DateTime DateVerification { get; set; }
 
         [Display(Name = "Дата следующей поверки")]
+        [DataType(DataType.Date)]
         public DateTime DateVerificationNext { get; set; } //TODO: Сделать автоматический расчет в зависимости от прошлой поверки
 
         [Display(Name = "Дата установки")]
+        [DataType(DataType.Date)]
         public DateTime DateInstall { get; set; }
         
         [Display(Name = "Разрядность")]
@@ -164,9 +169,11 @@ namespace ASCE.Models
         public string Category { get; set; }
 
         [Display(Name = "Дата открытия")]
+        [DataType(DataType.Date)]
         public DateTime DateOpen { get; set; }
         
         [Display(Name = "Дата закрытия")]
+        [DataType(DataType.Date)]
         public DateTime DateClose { get; set; }
 
         [Display(Name = "Описание")]
