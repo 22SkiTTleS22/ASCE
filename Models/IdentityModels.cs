@@ -14,10 +14,14 @@ namespace ASCE.Models
     // В профиль пользователя можно добавить дополнительные данные, если указать больше свойств для класса ApplicationUser. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=317594.
     public class ApplicationUser : IdentityUser
     {
+        [Required]
         [Display(Name = "Имя")]
         public string FirstName { get; set; }
+        
+        [Required]
         [Display(Name = "Фамилия")]
         public string SecondName { get; set; }
+        
         [Display(Name = "Отчество")]
         public string Patronymic { get; set; }
 
@@ -44,9 +48,11 @@ namespace ASCE.Models
         [HiddenInput (DisplayValue = false)]
         public ApplicationUser ApplicationUser { get; set; }
 
+        [Required]
         [Display(Name = "Адреc")]
         public string Address { get; set; }
 
+        [Required]
         [Display (Name = "Дата открытия")]
         [DataType(DataType.Date)]
         public DateTime DateOpen { get; set; }
@@ -66,7 +72,7 @@ namespace ASCE.Models
      
         [HiddenInput(DisplayValue = false)]
         public PersonalAccount PersonalAccount { get; set; }
-        
+
         [Display(Name = "Серийный номер")]
         public string SerialNumber { get; set; }
         
@@ -106,7 +112,8 @@ namespace ASCE.Models
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
-        
+
+        [Required]
         [Display(Name = "Имя услуги")]
         public string Name { get; set; }
 
@@ -138,9 +145,11 @@ namespace ASCE.Models
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
+        [Required]
         [Display(Name = "ФИО")]
         public string FullName { get; set; }
 
+        [Required]
         [Display(Name = "Должность")]
         public string Position { get; set; }
 
@@ -162,6 +171,7 @@ namespace ASCE.Models
         [HiddenInput(DisplayValue = false)]
         public PersonalAccount PersonalAccount { get; set; }
 
+        [Required]
         [Display(Name = "Статус")]
         public string Status { get; set; }
 
