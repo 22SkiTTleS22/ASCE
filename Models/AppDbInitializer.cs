@@ -20,8 +20,8 @@ namespace ASCE.Models
             roleManager.Create(roleUser);
 
             // создаем пользователей
-            var admin = new ApplicationUser { Email = "admin@admin.ru", UserName = "admin" };
-            string password = "admin";
+            var admin = new ApplicationUser { Email = "admin@admin.ru", UserName = "Admin" };
+            string password = "Adm1n!";
             var result = userManager.Create(admin, password);
 
             // если создание пользователя прошло успешно
