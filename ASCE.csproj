@@ -243,9 +243,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\PersonalAccount\List.cshtml" />
     <Content Include="Views\Request\List.cshtml" />
-    <Content Include="Views\Service\List.cshtml" />
     <Content Include="Views\PersonalAccount\Create.cshtml" />
     <Content Include="Views\Request\Create.cshtml" />
+    <Content Include="Views\Service\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
