@@ -1,0 +1,45 @@
+﻿@model ASCE.Models.PersonalAccount
+
+@{
+    ViewBag.Title = "Удаление лицевого счета";
+}
+
+<h3>Вы уверены что хотите удалить лицевой счет?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOpen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOpen)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Отмена", "Index")
+        </div>
+    }
+</div>

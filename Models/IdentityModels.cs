@@ -14,11 +14,11 @@ namespace ASCE.Models
     // В профиль пользователя можно добавить дополнительные данные, если указать больше свойств для класса ApplicationUser. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=317594.
     public class ApplicationUser : IdentityUser
     {
-        [StringLength(25)]
+        [StringLength(25, MinimumLength = 5, ErrorMessage = "Строка должна содержать от 5 до 25 символов")]
         [Display(Name = "Имя")]
         public string FirstName { get; set; }
         
-        [StringLength(25)]
+        [StringLength(25, MinimumLength = 5, ErrorMessage = "Строка должна содержать от 5 до 25 символов")]
         [Display(Name = "Фамилия")]
         public string SecondName { get; set; }
         
@@ -45,21 +45,21 @@ namespace ASCE.Models
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Лицевой счет не может быть пустым")]
         [Display(Name = "Номер лицевого счета")]
         public int AccountNumber { get; set; }
 
         [HiddenInput (DisplayValue = false)]
         public ApplicationUser ApplicationUser { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Адрес не может быть пустым")]
         [Display(Name = "Адреc")]
         public string Address { get; set; }
 
-        [Required]
-        [Display (Name = "Дата открытия")]
+        [Required(ErrorMessage = "Обязательное поле")]
+        [Display(Name = "Дата открытия лицевого счета")]
         [DataType(DataType.Date)]
-        public DateTime DateOpen { get; set; }
+        public DateTime DateOpen { get; set; } = DateTime.Now;
 
         public ICollection<Counter> Counters { get; set; }
         public PersonalAccount()
@@ -163,7 +163,7 @@ namespace ASCE.Models
 
     public class Request
     {
-        [HiddenInput(DisplayValue = false)]
+        [Display(Name = "Номер заявки")]
         public int Id { get; set; }
 
         [HiddenInput(DisplayValue = false)]
@@ -198,12 +198,12 @@ namespace ASCE.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 
-        DbSet<PersonalAccount> PersonalAccounts { get; set; }
-        DbSet<Counter> Counters { get; set; }
-        DbSet<Worker> Workers { get; set; }
-        DbSet<Service> Services { get; set; }
-        DbSet<Request> Requests { get; set; }
-        DbSet<Verification> Verifications { get; set; }
+        public DbSet<PersonalAccount> PersonalAccounts { get; set; }
+        public DbSet<Counter> Counters { get; set; }
+        public DbSet<Worker> Workers { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Request> Requests { get; set; }
+        public DbSet<Verification> Verifications { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

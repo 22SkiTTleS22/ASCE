@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - ASCE.net</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -22,9 +22,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Лицевые счета", "List", "PersonalAccount")</li>
-                    <li>@Html.ActionLink("Услуги", "List", "Service")</li>
-                    <li>@Html.ActionLink("Заявки", "List", "Request")</li>
+                    <li>@Html.ActionLink("Лицевые счета", "Index", "PersonalAccounts")</li>
+                    <li>@Html.ActionLink("Услуги", "Index", "Services")</li>
+                    <li>@Html.ActionLink("Заявки", "Index", "Requests")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Powered by Ilya Morozov</p>
         </footer>
     </div>
 
