@@ -1,17 +1,22 @@
 ﻿@model ASCE.Models.PersonalAccount
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Добавление лицевого счета";
 }
 
-<h2>Create</h2>
+<h2>Добавление нового лицевого счета</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>PersonalAccount</h4>
+        <h4>
+            После заполнения полей будет сформированно заявления и отправлено на рассмотрение.
+        </h4>
+        <h4>
+            Статус заявления вы сможете посмотреть в разделе @Html.ActionLink("Заявки", "Index").
+        </h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -40,12 +45,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Подать заявку" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("ОТМЕНА", "Index")
 </div>
