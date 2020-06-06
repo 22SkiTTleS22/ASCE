@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASCE.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace ASCE.Controllers
 {
     public class PersonalAccountController : Controller
     {
+        readonly ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             return RedirectToAction("List", "PersonalAccount");
@@ -15,8 +18,11 @@ namespace ASCE.Controllers
         
         public ActionResult List()
         {
-            ViewBag.Message = "Список все лицевых счетов";
+            return View(db.PersonalAccounts);
+        }
 
+        public ActionResult Create()
+        {
             return View();
         }
     }

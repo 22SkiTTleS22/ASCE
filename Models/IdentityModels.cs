@@ -198,12 +198,12 @@ namespace ASCE.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 
-        DbSet<PersonalAccount> PersonalAccounts { get; set; }
-        DbSet<Counter> Counters { get; set; }
-        DbSet<Worker> Workers { get; set; }
-        DbSet<Service> Services { get; set; }
-        DbSet<Request> Requests { get; set; }
-        DbSet<Verification> Verifications { get; set; }
+        public DbSet<PersonalAccount> PersonalAccounts { get; set; }
+        public DbSet<Counter> Counters { get; set; }
+        public DbSet<Worker> Workers { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Request> Requests { get; set; }
+        public DbSet<Verification> Verifications { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

@@ -1,9 +1,15 @@
-﻿@{
+﻿@model IEnumerable<ASCE.Models.PersonalAccount>
+
+@{
     ViewBag.Title = "PersonalAccountList";
     @Styles.Render("~/Content/lists.css")
 }
 
 <h3>Список лицевых счетов</h3>
+
+<div class="btn-create">
+    @Html.ActionLink("Добавить", "Create", "PersonalAccount")
+</div>
 
 <table>
     <tr>
