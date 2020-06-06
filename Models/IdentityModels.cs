@@ -14,11 +14,11 @@ namespace ASCE.Models
     // В профиль пользователя можно добавить дополнительные данные, если указать больше свойств для класса ApplicationUser. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=317594.
     public class ApplicationUser : IdentityUser
     {
-        [StringLength(25)]
+        [StringLength(25, MinimumLength = 5, ErrorMessage = "Строка должна содержать от 5 до 25 символов")]
         [Display(Name = "Имя")]
         public string FirstName { get; set; }
         
-        [StringLength(25)]
+        [StringLength(25, MinimumLength = 5, ErrorMessage = "Строка должна содержать от 5 до 25 символов")]
         [Display(Name = "Фамилия")]
         public string SecondName { get; set; }
         
@@ -45,21 +45,21 @@ namespace ASCE.Models
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Лицевой счет не может быть пустым")]
         [Display(Name = "Номер лицевого счета")]
         public int AccountNumber { get; set; }
 
         [HiddenInput (DisplayValue = false)]
         public ApplicationUser ApplicationUser { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Адрес не может быть пустым")]
         [Display(Name = "Адреc")]
         public string Address { get; set; }
 
-        [Required]
-        [Display (Name = "Дата открытия")]
+        [Required(ErrorMessage = "Обязательное поле")]
+        [Display(Name = "Дата открытия лицевого счета")]
         [DataType(DataType.Date)]
-        public DateTime DateOpen { get; set; }
+        public DateTime DateOpen { get; set; } = DateTime.Now;
 
         public ICollection<Counter> Counters { get; set; }
         public PersonalAccount()
