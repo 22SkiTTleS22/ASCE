@@ -122,6 +122,15 @@ namespace ASCE.Models
 
         public int? CounterId { get; set; }
         public Counter Counter { get; set; }
+
+        [Required(ErrorMessage = "Данные не могут быть пустыми")]
+        [Display(Name = "Показания")]
+        public float Value { get; set; }
+
+        [Required(ErrorMessage = "Дата должна быть не пустой")]
+        [Display(Name = "Дата сдачи")]
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; }
     }
 
     public class Service
