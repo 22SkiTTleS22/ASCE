@@ -246,11 +246,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\PersonalAccounts\Create.cshtml" />
-    <Content Include="Views\PersonalAccounts\Delete.cshtml" />
-    <Content Include="Views\PersonalAccounts\Details.cshtml" />
-    <Content Include="Views\PersonalAccounts\Edit.cshtml" />
-    <Content Include="Views\PersonalAccounts\Index.cshtml" />
     <Content Include="Views\Services\Create.cshtml" />
     <Content Include="Views\Services\Delete.cshtml" />
     <Content Include="Views\Services\Details.cshtml" />
@@ -266,6 +261,11 @@
     <Content Include="Views\Requests\Details.cshtml" />
     <Content Include="Views\Requests\Edit.cshtml" />
     <Content Include="Views\Requests\Index.cshtml" />
+    <Content Include="Views\PersonalAccounts\Create.cshtml" />
+    <Content Include="Views\PersonalAccounts\Delete.cshtml" />
+    <Content Include="Views\PersonalAccounts\Details.cshtml" />
+    <Content Include="Views\PersonalAccounts\Edit.cshtml" />
+    <Content Include="Views\PersonalAccounts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<ASCE.Models.Request>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Список услуг";
 }
 
-<h2>Index</h2>
+<h2>Список доступных услуг</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить услугу", "Create")
 </p>
 <table class="table">
     <tr>
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Service.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Worker.FullName)
+            Исполнитель
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Status)
@@ -65,9 +65,9 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Информация", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
