@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Информация лицевого счета";
+    @Styles.Render("~/Content/lists.css");
 }
 
 <h2>Информация о лицевом счете номер @Html.DisplayFor(model => model.AccountNumber)</h2>
@@ -31,6 +32,25 @@
 
         <dd>
             @Html.DisplayFor(model => model.DateOpen)
+        </dd>
+
+        <dd>
+            <h4>Список счетчиков</h4>
+            <table>
+                <tr>
+                    <th>
+                        Лицевой счет
+                    </th>
+                </tr>
+                @foreach (ASCE.Models.Counter c in Model.Counters)
+                {
+                <tr>
+                    <td>
+                        @Html.Display(c.SerialNumber)
+                    </td>
+                </tr>
+                }
+            </table>
         </dd>
 
     </dl>
