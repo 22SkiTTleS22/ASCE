@@ -50,6 +50,7 @@ namespace ASCE.Models
         public int AccountNumber { get; set; }
 
         [HiddenInput (DisplayValue = false)]
+        public int? ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
         [Required(ErrorMessage = "Адрес не может быть пустым")]
@@ -66,7 +67,6 @@ namespace ASCE.Models
         {
             Counters = new List<Counter>();
         }
-
     }
 
     public class Counter
@@ -75,14 +75,18 @@ namespace ASCE.Models
         public int Id { get; set; }
      
         [HiddenInput(DisplayValue = false)]
+        public int? PersonalAccountId { get; set; }
         public PersonalAccount PersonalAccount { get; set; }
 
+        [Required(ErrorMessage = "Серийный номер не может быть пустым")]
         [Display(Name = "Серийный номер")]
         public string SerialNumber { get; set; }
         
+        [Required(ErrorMessage = "Модель не может быть пустой")]
         [Display(Name = "Модель")]
         public string Model { get; set; }
         
+        [Required(ErrorMessage = "Обязательно введите производителя")]
         [Display(Name = "Производитель")]
         public string Manufacturer { get; set; }
 
@@ -94,22 +98,30 @@ namespace ASCE.Models
         [DataType(DataType.Date)]
         public DateTime DateVerification { get; set; }
 
-        [Display(Name = "Дата следующей поверки")]
-        [DataType(DataType.Date)]
-        public DateTime DateVerificationNext { get; set; } //TODO: Сделать автоматический расчет в зависимости от прошлой поверки
-
         [Display(Name = "Дата установки")]
         [DataType(DataType.Date)]
         public DateTime DateInstall { get; set; }
-        
-        [Display(Name = "Разрядность")]
-        public int Capacity { get; set; }
 
         [Display(Name = "Номер пломбы")]
         public string SealNumber { get; set; }
 
         [Display(Name = "Место установки")]
         public string InstallPlace { get; set; }
+
+        public ICollection<CounterHistory> CounterHistories { get; set; }
+        public Counter()
+        {
+            CounterHistories = new List<CounterHistory>();
+        }
+    }
+
+    public class CounterHistory
+    {
+        [HiddenInput(DisplayValue = false)]
+        public int Id { get; set; }
+
+        public int? CounterId { get; set; }
+        public Counter Counter { get; set; }
     }
 
     public class Service
