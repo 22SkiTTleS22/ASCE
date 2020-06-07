@@ -55,9 +55,9 @@ namespace ASCE
             {
                 RequiredLength = 5,
                 RequireNonLetterOrDigit = false,
-                RequireDigit = false,
-                RequireLowercase = false,
-                RequireUppercase = false,
+                RequireDigit = true,
+                RequireLowercase = true,
+                RequireUppercase = true,
             };
 
             // Настройка параметров блокировки по умолчанию

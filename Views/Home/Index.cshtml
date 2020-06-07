@@ -1,11 +1,11 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Главная";
 }
 
 <div class="jumbotron">
     <h1>ASCE.NET</h1>
     <p class="lead">ASCE.NET передовой сайт для сбора и учета электропоказаний и обслуживания наших клиентов</p>
-    <p>@Html.ActionLink("Войти в систему", "Login", "Account", new { @class = "btn btn-primary btn-lg"})</p>
+    @Html.ActionLink("Войти в систему", "Login", "Account", new { @class = "btn btn-primary btn-lg"})
 </div>
 
 <div class="row">

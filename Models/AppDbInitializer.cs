@@ -20,7 +20,7 @@ namespace ASCE.Models
 
             // создаем пользователей
             var admin = new ApplicationUser { Email = "admin@admin.ru", UserName = "admin@admin.ru" };
-            string password = "admin";
+            string password = "Adm1n!";
 
             var result = userManager.Create(admin, password);
             if (result.Succeeded)
