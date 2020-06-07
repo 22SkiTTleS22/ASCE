@@ -17,7 +17,8 @@ namespace ASCE.Controllers
         // GET: Requests
         public ActionResult Index()
         {
-            return View(db.Requests.ToList());
+            var requests = db.Requests.Include(r => r.PersonalAccount).Include(r => r.Service).Include(r => r.Worker);
+            return View(requests.ToList());
         }
 
         // GET: Requests/Details/5
@@ -38,6 +39,9 @@ namespace ASCE.Controllers
         // GET: Requests/Create
         public ActionResult Create()
         {
+            ViewBag.PersonalAccountId = new SelectList(db.PersonalAccounts, "Id", "Address");
+            ViewBag.ServiceId = new SelectList(db.Services, "Id", "Name");
+            ViewBag.WorkerId = new SelectList(db.Workers, "Id", "FullName");
             return View();
         }
 
@@ -46,7 +50,7 @@ namespace ASCE.Controllers
         // Дополнительные сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Status,Category,DateOpen,DateClose,Description")] Request request)
+        public ActionResult Create([Bind(Include = "Id,WorkerId,ServiceId,PersonalAccountId,Status,Category,DateOpen,DateClose,Description")] Request request)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +59,9 @@ namespace ASCE.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.PersonalAccountId = new SelectList(db.PersonalAccounts, "Id", "Address", request.PersonalAccountId);
+            ViewBag.ServiceId = new SelectList(db.Services, "Id", "Name", request.ServiceId);
+            ViewBag.WorkerId = new SelectList(db.Workers, "Id", "FullName", request.WorkerId);
             return View(request);
         }
 
@@ -70,6 +77,9 @@ namespace ASCE.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.PersonalAccountId = new SelectList(db.PersonalAccounts, "Id", "Address", request.PersonalAccountId);
+            ViewBag.ServiceId = new SelectList(db.Services, "Id", "Name", request.ServiceId);
+            ViewBag.WorkerId = new SelectList(db.Workers, "Id", "FullName", request.WorkerId);
             return View(request);
         }
 
@@ -78,7 +88,7 @@ namespace ASCE.Controllers
         // Дополнительные сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Status,Category,DateOpen,DateClose,Description")] Request request)
+        public ActionResult Edit([Bind(Include = "Id,WorkerId,ServiceId,PersonalAccountId,Status,Category,DateOpen,DateClose,Description")] Request request)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +96,9 @@ namespace ASCE.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.PersonalAccountId = new SelectList(db.PersonalAccounts, "Id", "Address", request.PersonalAccountId);
+            ViewBag.ServiceId = new SelectList(db.Services, "Id", "Name", request.ServiceId);
+            ViewBag.WorkerId = new SelectList(db.Workers, "Id", "FullName", request.WorkerId);
             return View(request);
         }
 

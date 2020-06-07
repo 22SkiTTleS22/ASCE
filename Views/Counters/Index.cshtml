@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.PersonalAccount.Address)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.SerialNumber)
         </th>
         <th>
@@ -27,13 +30,7 @@
             @Html.DisplayNameFor(model => model.DateVerification)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateVerificationNext)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.DateInstall)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Capacity)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SealNumber)
@@ -46,6 +43,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonalAccount.Address)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.SerialNumber)
         </td>
@@ -62,13 +62,7 @@
             @Html.DisplayFor(modelItem => item.DateVerification)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateVerificationNext)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.DateInstall)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Capacity)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SealNumber)
