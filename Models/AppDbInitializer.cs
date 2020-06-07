@@ -23,14 +23,12 @@ namespace ASCE.Models
             var admin = new ApplicationUser { Email = "admin@admin.ru", UserName = "Admin" };
             string password = "Adm1n!";
             var result = userManager.Create(admin, password);
-            context.SaveChanges();
 
             // если создание пользователя прошло успешно
             if (result.Succeeded)
             {
                 // добавляем для пользователя роль
                 userManager.AddToRole(admin.Id, roleAdmin.Name);
-                userManager.AddToRole(admin.Id, roleUser.Name);
             }
 
             base.Seed(context);

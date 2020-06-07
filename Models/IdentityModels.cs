@@ -216,6 +216,7 @@ namespace ASCE.Models
         public DbSet<Service> Services { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<Verification> Verifications { get; set; }
+        public DbSet<CounterHistory> CounterHistories { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
