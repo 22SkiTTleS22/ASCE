@@ -65,6 +65,21 @@ namespace ASCE.Models
     public class RegisterViewModel
     {
         [Required]
+        [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 2)]
+        [Display(Name = "Фамилия")]
+        public string FirstName { get; set; }
+        
+        [Required]
+        [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 2)]
+        [Display(Name = "Имя")]
+        public string SecondName { get; set; }
+        
+        [Required]
+        [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 3)]
+        [Display(Name = "Отчество")]
+        public string Patronymic { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Адрес электронной почты")]
         public string Email { get; set; }
