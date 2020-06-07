@@ -50,7 +50,7 @@ namespace ASCE.Models
         public int AccountNumber { get; set; }
 
         [HiddenInput (DisplayValue = false)]
-        public int? ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
         [Required(ErrorMessage = "Адрес не может быть пустым")]
@@ -158,7 +158,7 @@ namespace ASCE.Models
         public Counter Counter { get; set; }
 
         [HiddenInput(DisplayValue = false)]
-        public int? ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
         [Display(Name = "Протокол о поверки")]
@@ -232,7 +232,6 @@ namespace ASCE.Models
         public DbSet<Service> Services { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<Verification> Verifications { get; set; }
-        public DbSet<CounterHistory> CounterHistories { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
