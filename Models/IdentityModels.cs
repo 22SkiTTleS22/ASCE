@@ -120,8 +120,18 @@ namespace ASCE.Models
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public int? CounterId { get; set; }
         public Counter Counter { get; set; }
+
+        [Required(ErrorMessage = "Данные не могут быть пустыми")]
+        [Display(Name = "Показания")]
+        public float Value { get; set; }
+
+        [Required(ErrorMessage = "Дата должна быть не пустой")]
+        [Display(Name = "Дата сдачи")]
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; }
     }
 
     public class Service
@@ -144,9 +154,11 @@ namespace ASCE.Models
         public int Id { get; set; }
 
         [HiddenInput(DisplayValue = false)]
+        public int? CounterId { get; set; }
         public Counter Counter { get; set; }
 
         [HiddenInput(DisplayValue = false)]
+        public int? ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
         [Display(Name = "Протокол о поверки")]
@@ -179,12 +191,15 @@ namespace ASCE.Models
         public int Id { get; set; }
 
         [HiddenInput(DisplayValue = false)]
+        public int? WorkerId { get; set; }
         public Worker Worker { get; set; }
 
         [HiddenInput(DisplayValue = false)]
+        public int? ServiceId { get; set; }
         public Service Service { get; set; }
 
         [HiddenInput(DisplayValue = false)]
+        public int? PersonalAccountId { get; set; }
         public PersonalAccount PersonalAccount { get; set; }
 
         [Required]
@@ -212,6 +227,7 @@ namespace ASCE.Models
 
         public DbSet<PersonalAccount> PersonalAccounts { get; set; }
         public DbSet<Counter> Counters { get; set; }
+        public DbSet<CounterHistory> CounterHistories { get; set; }
         public DbSet<Worker> Workers { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Request> Requests { get; set; }

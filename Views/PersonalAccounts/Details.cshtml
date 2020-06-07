@@ -1,7 +1,7 @@
 ﻿@model ASCE.Models.PersonalAccount
 
 @{
-    ViewBag.Title = "Информация лицевого счета";
+    ViewBag.Title = "Details";
     @Styles.Render("~/Content/lists.css");
 }
 
@@ -40,20 +40,19 @@
             <table>
                 <tr>
                     <th>
-                        Лицевой счет
+                        Номер
                     </th>
                 </tr>
-                @foreach (var c in Model.Counters)
+                @foreach (var item in Model.Counters)
                 {
                 <tr>
                     <td>
-                        @Html.Display(c.SerialNumber)
+                        @item.SerialNumber
                     </td>
                 </tr>
                 }
             </table>
         </dd>
-
     </dl>
 </div>
 <p>

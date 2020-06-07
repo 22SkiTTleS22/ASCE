@@ -17,7 +17,8 @@ namespace ASCE.Controllers
         // GET: Counters
         public ActionResult Index()
         {
-            return View(db.Counters.ToList());
+            var counters = db.Counters.Include(c => c.PersonalAccount);
+            return View(counters.ToList());
         }
 
         // GET: Counters/Details/5
@@ -38,6 +39,7 @@ namespace ASCE.Controllers
         // GET: Counters/Create
         public ActionResult Create()
         {
+            ViewBag.PersonalAccountId = new SelectList(db.PersonalAccounts, "Id", "Address");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace ASCE.Controllers
         // Дополнительные сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,SerialNumber,Model,Manufacturer,DateCreate,DateVerification,DateVerificationNext,DateInstall,Capacity,SealNumber,InstallPlace")] Counter counter)
+        public ActionResult Create([Bind(Include = "Id,PersonalAccountId,SerialNumber,Model,Manufacturer,DateCreate,DateVerification,DateInstall,SealNumber,InstallPlace")] Counter counter)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace ASCE.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.PersonalAccountId = new SelectList(db.PersonalAccounts, "Id", "Address", counter.PersonalAccountId);
             return View(counter);
         }
 
@@ -70,6 +73,7 @@ namespace ASCE.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.PersonalAccountId = new SelectList(db.PersonalAccounts, "Id", "Address", counter.PersonalAccountId);
             return View(counter);
         }
 
@@ -78,7 +82,7 @@ namespace ASCE.Controllers
         // Дополнительные сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,SerialNumber,Model,Manufacturer,DateCreate,DateVerification,DateVerificationNext,DateInstall,Capacity,SealNumber,InstallPlace")] Counter counter)
+        public ActionResult Edit([Bind(Include = "Id,PersonalAccountId,SerialNumber,Model,Manufacturer,DateCreate,DateVerification,DateInstall,SealNumber,InstallPlace")] Counter counter)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace ASCE.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.PersonalAccountId = new SelectList(db.PersonalAccounts, "Id", "Address", counter.PersonalAccountId);
             return View(counter);
         }
 

@@ -1,22 +1,17 @@
 ﻿@model ASCE.Models.PersonalAccount
 
 @{
-    ViewBag.Title = "Добавление лицевого счета";
+    ViewBag.Title = "Create";
 }
 
-<h2>Добавление нового лицевого счета</h2>
+<h2>Create</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
-        <h4>
-            После заполнения полей будет сформированно заявления и отправлено на рассмотрение.
-        </h4>
-        <h4>
-            Статус заявления вы сможете посмотреть в разделе @Html.ActionLink("Заявки", "Index").
-        </h4>
+        <h4>PersonalAccount</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -24,6 +19,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.AccountNumber, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.AccountNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApplicationUserId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ApplicationUserId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ApplicationUserId, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -45,12 +48,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Подать заявку" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("ОТМЕНА", "Index")
+    @Html.ActionLink("Back to List", "Index")
 </div>

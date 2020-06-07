@@ -46,7 +46,7 @@ namespace ASCE.Controllers
         // Дополнительные сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AccountNumber,Address,DateOpen")] PersonalAccount personalAccount)
+        public ActionResult Create([Bind(Include = "Id,AccountNumber,ApplicationUserId,Address,DateOpen")] PersonalAccount personalAccount)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace ASCE.Controllers
         // Дополнительные сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,AccountNumber,Address,DateOpen")] PersonalAccount personalAccount)
+        public ActionResult Edit([Bind(Include = "Id,AccountNumber,ApplicationUserId,Address,DateOpen")] PersonalAccount personalAccount)
         {
             if (ModelState.IsValid)
             {
