@@ -36,13 +36,14 @@
 
         <dd>
             <h4>Список счетчиков</h4>
+            @Html.ActionLink("Добавить счетчик", "Create", "Counters")
             <table>
                 <tr>
                     <th>
                         Лицевой счет
                     </th>
                 </tr>
-                @foreach (ASCE.Models.Counter c in Model.Counters)
+                @foreach (var c in Model.Counters)
                 {
                 <tr>
                     <td>
