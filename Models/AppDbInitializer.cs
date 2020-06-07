@@ -8,7 +8,6 @@ namespace ASCE.Models
         protected override void Seed(ApplicationDbContext context)
         {
             var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
-
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
             // создаем две роли
@@ -20,17 +19,13 @@ namespace ASCE.Models
             roleManager.Create(roleUser);
 
             // создаем пользователей
-            var admin = new ApplicationUser { Email = "admin@admin.ru", UserName = "Admin" };
+            var admin = new ApplicationUser { Email = "admin@admin.ru", UserName = "admin@admin.ru" };
             string password = "Adm1n!";
-            var result = userManager.Create(admin, password);
-            context.SaveChanges();
 
-            // если создание пользователя прошло успешно
+            var result = userManager.Create(admin, password);
             if (result.Succeeded)
             {
-                // добавляем для пользователя роль
-                userManager.AddToRole(admin.Id, roleAdmin.Name);
-                userManager.AddToRole(admin.Id, roleUser.Name);
+                userManager.AddToRole(admin.Id, "admin");
             }
 
             base.Seed(context);

@@ -10,6 +10,7 @@ using ASCE.Models;
 
 namespace ASCE.Controllers
 {
+    [Authorize]
     public class RequestsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
